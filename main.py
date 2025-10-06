@@ -102,6 +102,61 @@ def konfirmasi_masa_aktif(hari, harga):
         # 0/Home atau input lain -> kembali ke menu utama
         return
 
+# ===================== MENU 5: DELETE AUTO TP =====================
+def menu_delete_auto_tp():
+    global auto_tp_list
+
+    clear_screen()
+    print("=== DELETE AUTO TP ===")
+
+    # cek ada list auto tp atau g
+    if len(auto_tp_list) == 0:
+        print("Tidak ada data Auto TP.")
+        return
+
+    # tampilkan list auto tp
+    i = 0
+    while i < len(auto_tp_list):
+        print(str(i + 1) + ". Nomor:", auto_tp_list[i]["nomor"],
+              "| Jumlah: Rp" + str(auto_tp_list[i]["jumlah"]),
+              "| Tanggal:", auto_tp_list[i]["tanggal"])
+        i = i + 1
+
+    # pilih yang mau dihapus
+    pilih = int(input("Masukkan nomor Auto TP yang ingin dihapus: "))
+    index = pilih - 1
+
+    if index >= 0 and index < len(auto_tp_list):
+        hapus = auto_tp_list[index]
+        del auto_tp_list[index]
+        print("Auto TP ke", hapus["nomor"], "berhasil dihapus.")
+    else:
+        print("Pilihan tidak valid.")
+
+
+# ===================== MENU 6: LIST AUTO TP =====================
+auto_tp_list = [
+    {"nomor": "081234567890", "jumlah": 10000, "tanggal": 19},
+    {"nomor": "082345678901", "jumlah": 20000, "tanggal": 15}
+]
+
+def menu_list_auto_tp():
+    clear_screen()
+    print("=== LIST AUTO TP ===")
+
+    if len(auto_tp_list) == 0:
+        print("Tidak ada Auto TP yang aktif.")
+    else:
+        i = 0
+        while i < len(auto_tp_list):
+            print(str(i + 1) + ". Nomor:", auto_tp_list[i]["nomor"],
+                  "| Jumlah: Rp" + str(auto_tp_list[i]["jumlah"]),
+                  "| Tanggal:", auto_tp_list[i]["tanggal"])
+            i = i + 1
+
+    input("\nTekan Enter untuk kembali ke menu utama...")
+    
+# ===================== MENU 7: CEK KUPON UNDIAN =====================
 def cekKuponUndianTP() :
     # memberikan informasi sambungan atau mmi tidak valid
     print("Sambungan atau Kode MMI tidak valid!")
@@ -119,10 +174,12 @@ def main():
 
         if   pilihan == "1": menu_1()
         elif pilihan == "2": menu_masa_aktif()
-        elif pilihan in {"3", "4", "5", "6"}:
+        elif pilihan in {"3", "4"}:
             clear_screen()
             print(f"Menu {pilihan} belum diimplementasikan.")
             input("\nTekan Enter untuk kembali ke menu utama...")
+        elif pilihan == "5": menu_delete_auto_tp()
+        elif pilihan == "6": menu_list_auto_tp()
         elif pilihan == "7" :
             clear_screen()
             cekKuponUndianTP()
@@ -137,3 +194,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
