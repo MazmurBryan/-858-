@@ -155,7 +155,7 @@ def auto_TP():
         #percabangan
         clear_screen()
         if konfir == "1":
-            print("Permintaan pulsa ",nompulsa," kepada ", noTujuan, " telah dikirim")
+            print("Auto Transfer Pulsa ",nompulsa," kepada ", noTujuan, " telah BERHASIL")
             input()
             return
         elif konfir == "9":
@@ -255,5 +255,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
