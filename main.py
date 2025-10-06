@@ -156,7 +156,7 @@ def menu_list_auto_tp():
 
     input("\nTekan Enter untuk kembali ke menu utama...")
     
-# ===================== MENU 7: CEK KUPON UNDIAN Transfer Pulsa =====================
+# ===================== MENU 7: CEK KUPON UNDIAN TRANSFER PULSA =====================
 def cekKuponUndianTransferPulsa() :
     # memberikan informasi tentang menu
     print("Anda memiliki 10 Kupon Undian TP." \
