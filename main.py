@@ -102,6 +102,67 @@ def konfirmasi_masa_aktif(hari, harga):
         # 0/Home atau input lain -> kembali ke menu utama
         return
 
+# ===================== MENU 3: MINTA PULSA ========================#
+
+def minta_pulsa():
+    while True:
+        #minta data
+        clear_screen()
+        noMinta = input("Silahkan masukkan nomor tujuan yang akan diminta pulsa: ")
+        clear_screen()
+        nominal = input("Silahkan masukkan jumlah pulsa yang diminta: ")
+
+        #Menu konfirmasi
+        clear_screen()
+        print("Anda akan meminta pulsa: ",nominal, " ke nomor ",noMinta," ? (biaya Rp 100)")
+        print("0.Home")
+        print("1.Setuju")
+        print("9.Back")
+        konfir = input()
+
+        #percabangan
+        clear_screen()
+        if konfir == "1":
+            print("Permintaan pulsa ",nominal," kepada ", noMinta, " telah dikirim")
+            input()
+            return
+        elif konfir == "9":
+            return minta_pulsa()
+        else:
+            return 
+
+# ===================== MENU 4: AUTO TP ============================#
+
+def auto_TP():
+    while True:
+        #minta data
+        clear_screen()
+        noTujuan = input("Silahkan masukkan nomor tujuan yg anda Auto Transfer Pulsa: ")
+        clear_screen()
+        nompulsa = input("Silahkan masukkan jumlah pulsa yang ditrasnfer: ")
+        clear_screen()
+        tanggal = input("Silahkan masukkan tanggal transfer, (cth:15): ")
+        clear_screen()
+
+        #menu konfirmasi
+        clear_screen()
+        print("Anda akan mengirimkan pulsa ",nompulsa," tiap tanggal ",tanggal," ke nomor:",noTujuan,"?(biaya Rp1.850)")
+        print("0.Home")
+        print("1.Setuju")
+        print("9.Back")
+        konfir = input()
+
+        #percabangan
+        clear_screen()
+        if konfir == "1":
+            print("Permintaan pulsa ",nompulsa," kepada ", noTujuan, " telah dikirim")
+            input()
+            return
+        elif konfir == "9":
+            return minta_pulsa()
+        else:
+            return 
+            
 # ===================== MENU 5: DELETE AUTO TP =====================
 def menu_delete_auto_tp():
     global auto_tp_list
@@ -177,10 +238,8 @@ def main():
 
         if   pilihan == "1": menu_1()
         elif pilihan == "2": menu_masa_aktif()
-        elif pilihan in {"3", "4"}:
-            clear_screen()
-            print(f"Menu {pilihan} belum diimplementasikan.")
-            input("\nTekan Enter untuk kembali ke menu utama...")
+        elif pilihan == "3": minta_pulsa() 
+        elif pilihan == "4": auto_TP()
         elif pilihan == "5": menu_delete_auto_tp()
         elif pilihan == "6": menu_list_auto_tp()
         elif pilihan == "7" :
@@ -196,4 +255,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
