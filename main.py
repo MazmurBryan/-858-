@@ -156,13 +156,16 @@ def menu_list_auto_tp():
 
     input("\nTekan Enter untuk kembali ke menu utama...")
     
-# ===================== MENU 7: CEK KUPON UNDIAN =====================
-def cekKuponUndianTP() :
-    # memberikan informasi sambungan atau mmi tidak valid
-    print("Sambungan atau Kode MMI tidak valid!")
+# ===================== MENU 7: CEK KUPON UNDIAN Transfer Pulsa =====================
+def cekKuponUndianTransferPulsa() :
+    # memberikan informasi tentang menu
+    print("Anda memiliki 10 Kupon Undian TP." \
+    "\nUndian berlaku hingga 31/10/2025" \
+    "\nInfo: telkomsel.com/undian" \
+    "\nTerima Kasih telah menggunakan layanan Transfer Pulsa Telkomsel")
 
-    # inputan untuk menutup program
-    input("Tekan Enter untuk menutup program...")
+    # inputan untuk kembali ke program utama
+    input("\nTekan Enter untuk kembali ke menu utama...")
     return
 
 # ===================== MAIN LOOP =====================
@@ -182,8 +185,7 @@ def main():
         elif pilihan == "6": menu_list_auto_tp()
         elif pilihan == "7" :
             clear_screen()
-            cekKuponUndianTP()
-            break
+            cekKuponUndianTransferPulsa()
         elif pilihan == "0":
             clear_screen()
             print("Terima kasih, sampai jumpa!")
