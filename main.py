@@ -102,6 +102,14 @@ def konfirmasi_masa_aktif(hari, harga):
         # 0/Home atau input lain -> kembali ke menu utama
         return
 
+def cekKuponUndianTP() :
+    # memberikan informasi sambungan atau mmi tidak valid
+    print("Sambungan atau Kode MMI tidak valid!")
+
+    # inputan untuk menutup program
+    input("Tekan Enter untuk menutup program...")
+    return
+
 # ===================== MAIN LOOP =====================
 
 def main():
@@ -111,10 +119,14 @@ def main():
 
         if   pilihan == "1": menu_1()
         elif pilihan == "2": menu_masa_aktif()
-        elif pilihan in {"3", "4", "5", "6", "7"}:
+        elif pilihan in {"3", "4", "5", "6"}:
             clear_screen()
             print(f"Menu {pilihan} belum diimplementasikan.")
             input("\nTekan Enter untuk kembali ke menu utama...")
+        elif pilihan == "7" :
+            clear_screen()
+            cekKuponUndianTP()
+            break
         elif pilihan == "0":
             clear_screen()
             print("Terima kasih, sampai jumpa!")
